@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+project(main)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_LIBRARY_PATH "/usr/local/cuda-10.2/targets/x86_64-linux/lib")
+set(OpenCV_DIR /home/olle/OpenCV/opencv-master/build)
+
+list(APPEND CMAKE_PREFIX_PATH "/home/olle/hello2/libtorch")
+find_package(Torch REQUIRED)  
+find_package(OpenCV REQUIRED)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lm -ldl")
+add_executable(main main.cpp)
+target_link_libraries(main ${TORCH_LIBRARIES} ${OpenCV_LIBS})
+set_property(TARGET main PROPERTY CXX_STANDARD 14)
