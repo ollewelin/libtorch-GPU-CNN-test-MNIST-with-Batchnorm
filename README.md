@@ -14,7 +14,7 @@ https://www.youtube.com/watch?v=wLQbXEORgFA
 
 https://github.com/zalandoresearch/fashion-mnist
 
-#### Or use the MNIST digits dataset
+#### Or use the old MNIST digits dataset
 
 http://yann.lecun.com/exdb/mnist/
 
