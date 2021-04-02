@@ -2,6 +2,7 @@
 Test add batchnorm layers.
 
 Was modifyed this code with adding batchnorm layer betwheen each convolution layers
+
 https://github.com/goldsborough/examples/tree/cpp/cpp/mnist
 
 ### Youtube video
