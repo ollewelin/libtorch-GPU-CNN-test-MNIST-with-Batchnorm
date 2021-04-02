@@ -1,6 +1,9 @@
 # libtorch-GPU-CNN-test-MNIST-with-Batchnorm
 Test add batchnorm layers.
 
+### Youtube video
+https://www.youtube.com/watch?v=wLQbXEORgFA
+
 ### Without batch norm layers connected
 
     Train Epoch: 10 [59584/60000] Loss: 0.0165
