@@ -136,12 +136,13 @@ torch::Tensor read_data()
     //Make a square rectangle of input image
     //Mat rect_part(image, Rect(rand_x_start, rand_y_start, Width, Height));//Pick a small part of image
     cv::Mat rectImageTemp(frame, cv::Rect(x_start, y_start, inputSize, inputSize)); //
+    //Size size(input_image_width,input_image_height);//the dst image size,e.g.100x100
+    cv::Size outRectSize(outputImageSize, outputImageSize);
+    //resize(src,dst,size);//resize image
+    cv::resize(rectImageTemp,rectImage,outRectSize);
+
   }
   
-  //Size size(input_image_width,input_image_height);//the dst image size,e.g.100x100
-  cv::Size outRectSize(outputImageSize, outputImageSize);
-  //resize(src,dst,size);//resize image
-  cv::resize(frame,rectImage,outRectSize);
   cv::imshow("frame", frame);
   cv::imshow("rectImage", rectImage);
   
