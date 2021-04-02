@@ -18,12 +18,12 @@ https://github.com/zalandoresearch/fashion-mnist
 
 http://yann.lecun.com/exdb/mnist/
 
-### Without batch norm layers connected
+### Without batch norm layers connected (on MNIST digits dataset)
 
     Train Epoch: 10 [59584/60000] Loss: 0.0165
     Test set: Average loss: 0.0429 | Accuracy: 0.987
 
-### With batch norm layer attached
+### With batch norm layer attached (on MNIST digits dataset)
 
     Train Epoch: 10 [59584/60000] Loss: 0.0120
     Test set: Average loss: 0.0315 | Accuracy: 0.989
