@@ -8,6 +8,16 @@ https://github.com/goldsborough/examples/tree/cpp/cpp/mnist
 ### Youtube video
 https://www.youtube.com/watch?v=wLQbXEORgFA
 
+### MNIST datasets
+
+#### MNIST Fashion dataset
+
+https://github.com/zalandoresearch/fashion-mnist
+
+#### Or use the MNIST digits dataset
+
+http://yann.lecun.com/exdb/mnist/
+
 ### Without batch norm layers connected
 
     Train Epoch: 10 [59584/60000] Loss: 0.0165
