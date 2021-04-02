@@ -1,7 +1,7 @@
 # libtorch-GPU-CNN-test-MNIST-with-Batchnorm
 Test add batchnorm layers.
 
-Was modifyed this code with adding batchnorm layer betwheen each convolution layers
+Was modifyed this code with adding batchnorm layer between each convolution layers
 
 https://github.com/goldsborough/examples/tree/cpp/cpp/mnist
 
