@@ -41,3 +41,13 @@ Example print out
     -0.0914 -0.0334  0.0359  0.1716  0.1377
     -0.1568 -0.1173 -0.1753 -0.1878 -0.0052
     [ CUDAFloatType{5,5} ]
+
+
+### Continue exploring Libtorch C++ with OpenCV towards a plane simple ResNet-34 training from scratch with custom image dataset.
+
+The code snippet :
+
+        under construction main.cpp
+
+I will try to do a (mid level programming) of a fix plain ResNet-34 (hardcoded ResNet-34 not generic ResNet-X with bottlenecks etc).
+Toghether with custom data set using OpenCV for a classification of color images or video stream.
