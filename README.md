@@ -79,5 +79,5 @@ https://discuss.pytorch.org/t/libtorch-how-to-use-torch-datasets-for-custom-data
 
 #### Disscusion regarding OpenCV -> Tensor and Tensor -> OpenCV
 
-https://discuss.pytorch.org/t/libtorch-how-to-use-torch-datasets-for-custom-dataset/34221/2
+https://discuss.pytorch.org/t/libtorch-c-convert-a-tensor-to-cv-mat-single-channel/47701/5
 
