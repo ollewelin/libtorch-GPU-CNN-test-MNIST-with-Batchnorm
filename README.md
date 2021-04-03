@@ -62,13 +62,22 @@ To fit as input for the future ResNet-34 classification model
 
 ![](Prepare_1_3_224_224_tensor_from_test_jpg.png)
 
+#### Resnet paper
+
 Paper :
 Figure 3, resnet-34
 
 https://arxiv.org/pdf/1512.03385.pdf
 
-Excellent explanation of ResNet in general
+#### Excellent explanation of ResNet in general
 
 https://erikgaas.medium.com/resnet-torchvision-bottlenecks-and-layers-not-as-they-seem-145620f93096#_=_
 
+#### Disscusion regarding dataloader
+
+https://discuss.pytorch.org/t/libtorch-how-to-use-torch-datasets-for-custom-dataset/34221/2
+
+#### Disscusion regarding OpenCV -> Tensor and Tensor -> OpenCV
+
+https://discuss.pytorch.org/t/libtorch-how-to-use-torch-datasets-for-custom-dataset/34221/2
 
