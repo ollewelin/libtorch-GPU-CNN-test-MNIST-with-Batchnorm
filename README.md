@@ -42,7 +42,7 @@ Example print out
     -0.1568 -0.1173 -0.1753 -0.1878 -0.0052
     [ CUDAFloatType{5,5} ]
 
-
+## To be continue.... code under development..
 ### Continue exploring Libtorch C++ with OpenCV towards a plane simple ResNet-34 training from scrach with custom image dataset.
 
 The code snippet :
@@ -61,4 +61,12 @@ The read_data() function adapt the test.jpg to a tensor with shape
 To fit as input for the future ResNet-34 classification model
 
 ![](Prepare_1_3_224_224_tensor_from_test_jpg.png)
+
+Paper :
+Figure 3, resnet-34
+https://arxiv.org/pdf/1512.03385.pdf
+
+Excellent explanation of ResNet in general
+https://erikgaas.medium.com/resnet-torchvision-bottlenecks-and-layers-not-as-they-seem-145620f93096#_=_
+
 
