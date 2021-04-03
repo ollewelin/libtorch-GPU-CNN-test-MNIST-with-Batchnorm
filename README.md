@@ -54,5 +54,5 @@ Toghether with custom data set using OpenCV for a classification of color images
 
 #### Prepare dataset tensor from abriarity size of test.jpg input image
 
-![](Prepare {1, 3, 224, 224} tensor from test_jpg.png)
+![](Prepare_1_3_224_224_tensor_from_test_jpg.png)
 
