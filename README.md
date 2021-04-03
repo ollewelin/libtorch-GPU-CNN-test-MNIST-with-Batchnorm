@@ -56,7 +56,7 @@ Toghether with custom data set using OpenCV for a classification of color images
 
 The read_data() function adapt the test.jpg to a tensor with shape 
 
-       Tensor {1, 3, 224, 224}
+       Tensor [1, 3, 224, 224]
         
 To fit as input for the future ResNet-34 classification model
 
