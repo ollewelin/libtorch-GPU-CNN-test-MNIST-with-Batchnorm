@@ -51,3 +51,7 @@ The code snippet :
 
 I will try to do a (mid level programming) of a fix plain ResNet-34 (hardcoded ResNet-34 not generic ResNet-X with bottlenecks etc).
 Toghether with custom data set using OpenCV for a classification of color images or video stream. Not need using torchvision for this yet.
+
+#### Prepare dataset tensor from abriarity size of test.jpg input image
+
+![]"Prepare {1, 3, 224, 224} tensor from test_jpg.png"
