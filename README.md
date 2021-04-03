@@ -43,7 +43,7 @@ Example print out
     [ CUDAFloatType{5,5} ]
 
 
-### Continue exploring Libtorch C++ with OpenCV towards a plane simple ResNet-34 training from scratch with custom image dataset.
+### Continue exploring Libtorch C++ with OpenCV towards a plane simple ResNet-34 training from scrach with custom image dataset.
 
 The code snippet :
 
