@@ -64,9 +64,11 @@ To fit as input for the future ResNet-34 classification model
 
 Paper :
 Figure 3, resnet-34
+
 https://arxiv.org/pdf/1512.03385.pdf
 
 Excellent explanation of ResNet in general
+
 https://erikgaas.medium.com/resnet-torchvision-bottlenecks-and-layers-not-as-they-seem-145620f93096#_=_
 
 
