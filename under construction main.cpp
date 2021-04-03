@@ -145,10 +145,6 @@ torch::Tensor read_data()
   
   cv::imshow("frame", frame);
   cv::imshow("rectImage", rectImage);
-  
-  
-
-//https://discuss.pytorch.org/t/libtorch-c-convert-a-tensor-to-cv-mat-single-channel/47701/5
 
   int kCHANNELS = 3;
   int rectImage_h = outputImageSize;
