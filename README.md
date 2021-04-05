@@ -48,6 +48,8 @@ Example print out
 The code snippet :
 
         under construction main.cpp
+        develop backup main (copy).cpp
+        ..
 
 I will try to do a (mid level programming) of a fix plain ResNet-34 (hardcoded ResNet-34 not generic ResNet-X with bottlenecks etc).
 Toghether with custom data set using OpenCV for a classification of color images or video stream. Not need using torchvision for this yet.
