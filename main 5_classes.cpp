@@ -15,12 +15,12 @@
 
 using namespace std;
 const int nr_of_classes = 5;
-
+const int input_img_size = 224;
 // Where to find the MNIST dataset.
 const char* kDataRoot = "./data";
 
 // The batch size for training.
-const int64_t kTrainBatchSize = 64;
+const int64_t kTrainBatchSize = 12;
 
 // The batch size for testing.
 const int64_t kTestBatchSize = 48;
@@ -34,16 +34,24 @@ const int64_t kLogInterval = 100;
 struct ObscureResNet : torch::nn::Module {
   ObscureResNet()
       : 
-        conv1(torch::nn::Conv2dOptions(3, 10, /*kernel_size=*/5).stride(2)),
-        bn1(torch::nn::BatchNorm2d(10)),
-        conv2(torch::nn::Conv2dOptions(10, 20, /*kernel_size=*/5)),
-        bn2(torch::nn::BatchNorm2d(20)),
-        fc1(320, 50),
-        fc2(50, nr_of_classes) {
+        conv1(torch::nn::Conv2dOptions(3, 20, /*kernel_size=*/5).stride(2)),
+        bn1(torch::nn::BatchNorm2d(20)),
+        conv2(torch::nn::Conv2dOptions(20, 30, /*kernel_size=*/5)),
+        bn2(torch::nn::BatchNorm2d(30)),
+        conv3(torch::nn::Conv2dOptions(30, 30, /*kernel_size=*/5)),
+        bn3(torch::nn::BatchNorm2d(30)),
+        conv4(torch::nn::Conv2dOptions(30, 30, /*kernel_size=*/5)),
+        bn4(torch::nn::BatchNorm2d(30)),
+        fc1(270, 100),
+        fc2(100, nr_of_classes) {
     register_module("conv1", conv1);
     register_module("bn1", bn1);
     register_module("conv2", conv2);
     register_module("bn2", bn2);
+    register_module("conv3", conv3);
+    register_module("bn3", bn3);
+    register_module("conv4", conv4);
+    register_module("bn4", bn4);
     
     register_module("fc1", fc1);
     register_module("fc2", fc2);
@@ -53,7 +61,11 @@ struct ObscureResNet : torch::nn::Module {
     x = torch::batch_norm(bn1->forward(x), bn1W,bnBias1W,bnmean1W,bnvar1W,true,0.9,0.001,true);
     x = torch::relu(torch::max_pool2d(conv2->forward(x), 2));
     x = torch::batch_norm(bn2->forward(x), bn2W,bnBias2W,bnmean2W,bnvar2W,true,0.9,0.001,true);
-    x = x.view({-1, 320});
+    x = torch::relu(torch::max_pool2d(conv3->forward(x), 2));
+    x = torch::batch_norm(bn3->forward(x), bn3W,bnBias3W,bnmean3W,bnvar3W,true,0.9,0.001,true);
+    x = torch::relu(torch::max_pool2d(conv4->forward(x), 2));
+    x = torch::batch_norm(bn4->forward(x), bn4W,bnBias4W,bnmean4W,bnvar4W,true,0.9,0.001,true);
+    x = x.view({-1, 270});
     x = torch::relu(fc1->forward(x));
     x = torch::dropout(x, /*p=*/0.5, /*training=*/is_training());
     x = fc2->forward(x);
@@ -69,10 +81,21 @@ struct ObscureResNet : torch::nn::Module {
   torch::Tensor bnmean2W;
   torch::Tensor bnvar2W;
   torch::nn::BatchNorm2d bn2;
+  torch::Tensor bn3W;
+  torch::Tensor bnBias3W;
+  torch::Tensor bnmean3W;
+  torch::Tensor bnvar3W;
+  torch::nn::BatchNorm2d bn3;
+  torch::Tensor bn4W;
+  torch::Tensor bnBias4W;
+  torch::Tensor bnmean4W;
+  torch::Tensor bnvar4W;
+  torch::nn::BatchNorm2d bn4;
 
   torch::nn::Conv2d conv1;
   torch::nn::Conv2d conv2;
-
+  torch::nn::Conv2d conv3;
+  torch::nn::Conv2d conv4;
 //  torch::nn::Conv2d conv3;
   torch::nn::Linear fc1;
   torch::nn::Linear fc2;
@@ -174,7 +197,7 @@ class CustomDataset : public torch::data::Dataset<CustomDataset>
             // Load image with OpenCV.
             cv::Mat img = cv::imread(file_location);
 
-            cv::Mat imgSquarRect = makeSquareImg(img, 56, file_location);
+            cv::Mat imgSquarRect = makeSquareImg(img, input_img_size, file_location);
        //     cv::imshow("img", img);
        //     cv::imshow("imgSquarRect", imgSquarRect);
        //     cv::waitKey(1000);
@@ -319,7 +342,7 @@ auto main() -> int {
       torch::data::make_data_loader(std::move(test_custom_dataset), kTestBatchSize);
 
   torch::optim::SGD optimizer(
-      model.parameters(), torch::optim::SGDOptions(0.01).momentum(0.5));
+      model.parameters(), torch::optim::SGDOptions(0.0001).momentum(0.5));
 
 
 
@@ -338,11 +361,11 @@ auto main() -> int {
    // train(epoch, model, device, *train_loader, optimizer, train_dataset_size);
     train(epoch, model, device, *train_loader, optimizer, custom_dataset_size);
 
-    std::string test_file1 = "./data/class0/650.jpg";
-    std::string test_file2 = "./data/class1/650.jpg";
-    std::string test_file3 = "./data/class2/650.jpg";
-    std::string test_file4 = "./data/class3/650.jpg";
-    std::string test_file5 = "./data/class4/650.jpg";
+    std::string test_file1 = "./data/class0/2.jpg";
+    std::string test_file2 = "./data/class1/2.jpg";
+    std::string test_file3 = "./data/class2/2.jpg";
+    std::string test_file4 = "./data/class3/2.jpg";
+    std::string test_file5 = "./data/class4/2.jpg";
 
     std::string test_file = test_file1;
 
@@ -383,7 +406,7 @@ auto main() -> int {
     cout << test_file << endl;
     cv::Mat img = cv::imread(test_file);
 
-    cv::Mat imgSquarRect = makeSquareImg(img, 56, test_file);
+    cv::Mat imgSquarRect = makeSquareImg(img, input_img_size, test_file);
     // Convert the image and label to a tensor.
     // Here we need to clone the data, as from_blob does not change the ownership of the underlying memory,
     // which, therefore, still belongs to OpenCV. If we did not clone the data at this point, the memory
