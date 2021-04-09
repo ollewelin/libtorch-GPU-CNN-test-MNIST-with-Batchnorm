@@ -87,3 +87,11 @@ https://krshrimali.github.io/Custom-Data-Loading-Using-PyTorch-CPP-API/
 
 https://discuss.pytorch.org/t/libtorch-c-convert-a-tensor-to-cv-mat-single-channel/47701/5
 
+### 5 classes test 5 diffrent flowers (4-conv layer network)
+
+![](Screenshot from 2021-04-09 22-15-18.png)
+
+        main 5_classes.cpp
+        
+        file_names_5_classes_500_jpg_img.csv
+
