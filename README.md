@@ -89,7 +89,7 @@ https://discuss.pytorch.org/t/libtorch-c-convert-a-tensor-to-cv-mat-single-chann
 
 ### 5 classes test 5 diffrent flowers (4-conv layer network)
 
-![](Screenshot from 2021-04-09 22-15-18.png)
+![](5_classes_flowers.png)
 
         main 5_classes.cpp
         
