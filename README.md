@@ -99,3 +99,8 @@ https://discuss.pytorch.org/t/libtorch-c-convert-a-tensor-to-cv-mat-single-chann
         
         file_names_5_classes_500_jpg_img.csv
 
+#### other links
+
+https://discuss.pytorch.org/t/libtorch-how-to-save-model-in-mnist-cpp-example/34234
+   
+   
