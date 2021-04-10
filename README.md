@@ -64,6 +64,10 @@ To fit as input for the future ResNet-34 classification model
 
 ![](Prepare_1_3_224_224_tensor_from_test_jpg.png)
 
+#### Flowers datasets from kaggle
+
+https://www.kaggle.com/alxmamaev/flowers-recognition
+
 #### Resnet paper
 
 Paper :
